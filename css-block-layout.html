@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0px;
+  }
+
+
+  [id="1"] {
+    margin-top: 0px;
+    width: 600px;
+    padding: 0 calc(50% - 300px);
+    background-color: black;
+    color: white;
+  }
+
+  [class="1"] {
+    width: 600px;
+    margin: auto;
+  }
+
+  div:not([class="a"]):hover {
+    background-color: red;
+  }
+
+  div:not([class="a"]) {
+    border: 3px solid;
+    height: 34px;
+    width: 174px;
+    background-color: pink;
+    text-align: center;
+    line-height: 34px;
+    margin-top: 15px;
+  }
+
+  div:nth-child(3n+2) {
+    margin-left: 210px;
+    margin-top: -40px;
+  }
+
+  div:nth-child(3n+3):not([class="a"]) {
+    margin-left: 420px;
+    margin-top: -40px;
+  }
+
+  .a {
+    width: 600px;
+    margin: 0px auto;
+  }
+
+  .b {
+    width: 600px;
+    margin: 0px auto;
+    word-spacing: 25px;
+    margin-bottom: 20px;
+  }
+
+  span {
+    border: 3px solid;
+    display: inline-block;
+    height: 34px;
+    width: 174px;
+    background-color: pink;
+    text-align: center;
+    line-height: 34px;
+    margin-top: 15px;
+  }
+
+  span:hover {
+    background-color: red;
+  }
+
+  .c {
+    border: 1px dotted transparent;
+    width: 598px;
+    margin: 0 auto;
+    border-bottom-color: black;
+  }
+
+  .d {
+    border-bottom: transparent;
+  }
+
+  .e {
+    text-align: center;
+
+
+    background-color: rgb(238, 138, 238);
+  }
+</style>
+
+<body>
+  <p id="1">hello world 请调整浏览器窗口大小查看效果</p>
+  <p class="1">页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体
+    宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体
+    宽度600px</p>
+  <div class="a">
+    <div>宽180高40(包含边框)</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>水平间隙30px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>垂直间隙15px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>边框宽度3px</div>
+    <div>产品</div>
+    <div>产品</div>
+
+  </div>
+  <p class="b">
+    <span>宽180高40(包含边框)</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>水平间隙30px</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>垂直间隙15px</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>边框宽度3px</span>
+    <span>产品</span>
+    <span>产品</span>
+  </p>
+
+  <p class="c ">link</p>
+  <p class="c ">link</p>
+  <p class="c ">link</p>
+  <p class="c ">link</p>
+  <p class="c d">link</p>
+  <p class=" e">©版权所有
+    <br>本页所有布局均使用块元素</p>
+
+
+</body>
+
+</html>
