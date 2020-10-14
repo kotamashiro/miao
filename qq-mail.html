@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    position: relative;
+    border: 1px solid black;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    border-bottom: 1px solid black;
+  }
+
+  aside {
+    width: 150px;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid black;
+  }
+
+  div {
+    xborder: 1px solid black;
+    height: 800px;
+    position: fixed;
+    top: 130px;
+    left: 220px;
+    overflow: scroll;
+  }
+
+  /* 绝对定位
+  div{
+    position:relative;
+  }
+  header{
+    height：70px;
+    position:absolute;
+    top:0;left:0;
+    border-bottom;1px
+}
+    aside{
+    height：calc(100% - 70px);
+    width:190px;
+    position:absolute;
+    top:72px;left:0;
+    border-right:1px;
+
+ }
+ main{
+   width:calc(100%-192px);height:calc(100-72px);
+    bottom:0;right:0;
+  position:absolute;
+ }
+
+   */
+</style>
+
+<body>
+  <header></header>
+  <aside></aside>
+  <div>Glad you asked. The effect demonstrated here is achieved by using fixed background images, nothing more. For
+    example, the main-content area (the blue part here) uses the following styles for the default spiral-shell
+    background:
+
+    div#content {background: white url(glassy-ripple.jpg) 0 0 no-repeat fixed;}
+    The above is equivalent to these styles:
+
+    div#content {
+    background-color: white;
+    background-image: url(glassy-ripple.jpg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+    The effect of these longer rules is exactly the same; they're just split out into individual background properties
+    for more detailed consideration by you, gentle reader.
+
+    First, check out the rippled-shell image found here: url(glassy-ripple.jpg). Then come back to this page and I'll
+    continue with the explanation. All done? Great.
+
+    According to CSS, any background image that is "fixed" using background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text). According to CSS, any background image that is "fixed" using
+    background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text).
+
+    So I set a fixed background for the BODY, the content DIV, and H1 and H2 elements scattered through the document. In
+    any given case of an element's display, we see whatever part of the associated background image intersects with the
+    element. The rest of the background image remains hidden.
+
+    And that's how it works.Glad you asked. The effect demonstrated here is achieved by using fixed background images,
+    nothing more. For example, the main-content area (the blue part here) uses the following styles for the default
+    spiral-shell background:
+
+    div#content {background: white url(glassy-ripple.jpg) 0 0 no-repeat fixed;}
+    The above is equivalent to these styles:
+
+    div#content {
+    background-color: white;
+    background-image: url(glassy-ripple.jpg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+    The effect of these longer rules is exactly the same; they're just split out into individual background properties
+    for more detailed consideration by you, gentle reader.
+
+    First, check out the rippled-shell image found here: url(glassy-ripple.jpg). Then come back to this page and I'll
+    continue with the explanation. All done? Great.
+
+    According to CSS, any background image that is "fixed" using background-attachment: fixed; is fixed with respect to
+    the viewport-- not the element with which the image is associated. So I set the rippled-shell background image to be
+    aligned with the top left corner of the browser window (the viewport) with the values given for background-position.
+    However, the image will only be visible wherever is intersects with the element to which it's been assigned.
+    Therefore, even though the top left corner of the rippled-shell image is aligned with the top left corner of the
+    viewport, we can only see it wherever it intersects with a div that has an id with a value of content (which, again,
+    happens to be the one containing this text).
+
+    So I set a fixed background for the BODY, the content DIV, and H1 and H2 elements scattered through the document. In
+    any given case of an element's display, we see whatever part of the associated background image intersects with the
+    element. The rest of the background image remains hidden.
+
+    And that's how it works.</div>
+
+</body>
+
+</html>

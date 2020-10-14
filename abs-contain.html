@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  div {
+    height: 500px;
+    border: 1px solid red;
+    margin: auto;
+  }
+
+  /* 顶宽高居中 */
+  .a {
+    width: 500px;
+  }
+
+  span {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 150px
+  }
+
+  /* 外层不定宽 内层定宽高*/
+  .b {
+    position: relative;
+  }
+
+  p {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  /* 相对居中 内部定宽高*/
+  .c>p {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 150px;
+    margin: auto;
+  }
+
+  /*  */
+</style>
+
+<body>
+  <div class="a"><span>xxxxxxx</span></div>
+  <hr>
+  <div class="b">
+    <p></p>
+  </div>
+  <div class="c">
+    <p></p>
+  </div>
+</body>
+
+</html>
