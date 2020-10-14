@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1px red;
+  }
+
+
+
+
+  .menu {
+    display: block;
+    list-style-type: none;
+    padding-left: 200px;
+    width: 50%;
+    margin: auto;
+  }
+
+  .menu li {
+    display: inline-block;
+    width: 100px;
+    position: relative;
+
+  }
+
+
+
+  ul ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 21px;
+  }
+
+  ul ul ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    left: 100%;
+    top: 0px;
+  }
+
+
+
+
+  li:hover>ul {
+    display: block;
+    /* 注意'>'这个选择器  */
+  }
+</style>
+
+<body>
+
+  <ul class="menu">
+    <li>文件<ul>
+        <li>啊
+          <ul>
+            <li>01<ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+            <li>02<ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+            <li>03
+              <ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>的
+          <ul>
+            <li>01<ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+            <li>02<ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+            <li>03<ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>我<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>发<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+
+        </li>
+      </ul>
+    </li>
+    <li>编辑
+      <ul>
+        <li>撒<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>圣诞啊<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>胜多负少<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>但凡<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>选择
+      <ul>
+        <li>当时法国撒旦<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>的风格圣诞<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>风格的<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>返回给<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>查看
+      <ul>
+        <li>1111<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>2222<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>3333<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>4444<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>转到
+      <ul>
+        <li>1111<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>2222<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>3333<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+        <li>4444<ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+
+  </ul>
+
+
+
+</body>
+
+</html>
