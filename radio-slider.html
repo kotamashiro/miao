@@ -7,21 +7,42 @@
   <title>Document</title>
 </head>
 <style>
-  div {
-    border: 5px solid red;
+  section>div {
+    border: 1px solid red;
     width: 394px;
     height: 328px;
     position: relative;
-    overflow: hidden;
+    xoverflow: hidden;
   }
 
-  div img {
+  label {
+    position: absolute;
+    display: none;
+
+  }
+
+  .one {
+    top: 150px;
+  }
+
+  .two {
+    top: 150px;
+    right: 5px;
+  }
+
+  img {
     width: 100%;
     height: 100%;
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     transition: 1s;
+    top: 0;
+  }
 
+  div>div>img {
+    transition: 1s;
+    /* 防止所有按钮重叠在一起 */
+    opacity: 0;
   }
 
   section {
@@ -29,11 +50,20 @@
     margin: auto;
   }
 
-  input:nth-child(1):checked~div img:nth-child(1),
-  input:nth-child(2):checked~div img:nth-child(2),
-  input:nth-child(3):checked~div img:nth-child(3),
-  input:nth-child(4):checked~div img:nth-child(4) {
+  input:nth-child(1):checked~div div:nth-child(1)>img,
+  input:nth-child(2):checked~div div:nth-child(2)>img,
+  input:nth-child(3):checked~div div:nth-child(3)>img,
+  input:nth-child(4):checked~div div:nth-child(4)>img {
     opacity: 1;
+  }
+
+  input:nth-child(1):checked~div div:nth-child(1)>label,
+  input:nth-child(2):checked~div div:nth-child(2)>label,
+  input:nth-child(3):checked~div div:nth-child(3)>label,
+  input:nth-child(4):checked~div div:nth-child(4)>label {
+    display: block;
+    z-index: 8;
+
   }
 </style>
 
@@ -46,30 +76,29 @@
     <input type="radio" name="slider" id="c">
     <input type="radio" name="slider" id="d">
     <div>
+      <div>
+        <img src="https://huiji-public.huijistatic.com/gbf/uploads/b/be/Zoom_3040141000_01.png" alt="">
+        <label class="one" for="d">左</label>
+        <label class="two" for="b">右</label>
+      </div>
+      <div>
+        <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/79/Zoom_3040116000_02.png" alt="">
+        <label class="one" for="a">左</label>
+        <label class="two" for="c">右</label>
+      </div>
+      <div>
+        <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/7d/Zoom_3030019000_02.png" alt="">
+        <label class="one" for="b">左</label>
+        <label class="two" for="d">右</label>
+      </div>
+      <div>
+        <img src="https://huiji-public.huijistatic.com/gbf/uploads/e/ea/Zoom_3040043000_03.png" alt="">
+        <label class="one" for="c">左</label>
+        <label class="two" for="a">右</label>
+      </div>
+    </div>
 
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/b/be/Zoom_3040141000_01.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/79/Zoom_3040116000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/7d/Zoom_3030019000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/e/ea/Zoom_3040043000_03.png" alt="">
-    </div>
-    <div>
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/b/be/Zoom_3040141000_01.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/79/Zoom_3040116000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/7d/Zoom_3030019000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/e/ea/Zoom_3040043000_03.png" alt="">
-    </div>
-    <div>
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/b/be/Zoom_3040141000_01.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/79/Zoom_3040116000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/7d/Zoom_3030019000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/e/ea/Zoom_3040043000_03.png" alt="">
-    </div>
-    <div>
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/b/be/Zoom_3040141000_01.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/79/Zoom_3040116000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/7/7d/Zoom_3030019000_02.png" alt="">
-      <img src="https://huiji-public.huijistatic.com/gbf/uploads/e/ea/Zoom_3040043000_03.png" alt="">
-    </div>
+
   </section>
 
 </body>
