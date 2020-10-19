@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  table {
+    width: 615px;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  #ts1 tr {
+    border: none;
+  }
+
+  #ts1 td {
+    border: blue inset;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+  }
+
+  #ts1 td:hover {
+    border: red outset;
+  }
+
+
+
+  #ts2 td {
+    width: 200px;
+    height: 200px;
+    border: 5px solid blue;
+    text-align: center;
+    position: relative;
+    padding: 0;
+  }
+
+  span {
+
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    display: block;
+    line-height: 200px;
+  }
+
+  #ts2 span:hover {
+    border: 5px solid red;
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+</style>
+
+<body>
+  <div id="ts1">
+    <table>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+  <div id="ts2">
+    <table>
+      <tr>
+        <td><span>1</span></td>
+        <td><span>2</span></td>
+        <td><span>3</span></td>
+      </tr>
+      <tr>
+        <td><span>4</span></td>
+        <td><span>5</span></td>
+        <td><span>6</span></td>
+      </tr>
+      <tr>
+        <td><span>7</span></td>
+        <td><span>8</span></td>
+        <td><span>9</span></td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
