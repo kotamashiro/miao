@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = x | 0
+    y = y | 0
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+
+  function line(x1, y1, x2, y2) {
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
+  }
+
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条30度的斜线（选做）
+在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  for (var i = 0; i < 400; i++) { dot(i, 150, 'red') }
+  // 画一条实线
+
+  for (var j = 0; j < 400; j++) {
+    if (j % 2 == 0) {
+      dot(j, 10, 'blue')
+    } else { dot(j, 10, 'white') }
+  }
+  // 画一条一个实点一个空点的虚线
+
+  for (var j = 0; j < 400; j = j + 4) {
+    dot(j, 20, 'blue')
+  }
+  for (var j = 1; j < 400; j = j + 4) {
+    dot(j, 20, 'blue')
+  }
+  // 画一条两个实点两个空点的虚线
+
+  for (var j = 0; j < 400; j = j + 5) {
+    dot(j, 30, 'blue')
+  }
+  for (var j = 1; j < 400; j = j + 5) {
+    dot(j, 30, 'blue')
+  }
+  for (var j = 2; j < 400; j = j + 5) {
+    dot(j, 30, 'blue')
+  }
+  //画一条三个实点两个空点的虚线
+
+  for (var a = 0; a < 300; a++) {
+    dot(a, a, 'red')
+  }
+  //画一条45度的斜线
+  for (var a = 0; a < 101; a++) {
+    dot(a, 100 - a, 'lime')
+  }
+  for (var a = 0; a < 101; a++) {
+    dot(a, a + 200, 'lime')
+  }
+  for (var a = 0; a < 101; a++) {
+    dot(a + 300, a, 'lime')
+  }
+  for (var a = 0; a < 101; a++) {
+    dot(a + 300, 300 - a, 'lime')
+  }
+  //在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+
+  for (var x = 0; x < 300; x++) {
+    var y = x / Math.sqrt(3)
+    dot(y, x, 'blue')
+  }
+
+  // 画一条30度的斜线
+
+  for (var a = 0; a < 300; a++) {
+    dot(a / 3 * 4, a, 'red')
+  }
+  // 画一条跨越画布左上角和右下角的对角线
+
+  for (var a = 50; a < 101; a++) {
+    dot(a, 100, 'red')
+    dot(a, 120, 'red')
+  }
+  for (var a = 100; a < 121; a++) {
+    dot(50, a, 'red')
+    dot(101, a, 'red')
+  }
+  // 画一个空心矩形
+
+  for (var a = 50; a < 101; a++) {
+    for (var b = 160; b < 180; b++) {
+      dot(a, b, 'red')
+    }
+  }
+  // 画一个实心矩形
+
+  for (var y = 0; y < 256; y++) {
+    for (var x = 0; x < 256; x++) {
+      var color = 'rgb(' + x + ',' + y + ',255'
+      dot(x / 5, y / 5, color)
+    }
+  }
+
+  // 画一个rgb色彩空间的某一面
+  var r = 50
+  var x = 0
+  do {
+    var y = Math.sqrt(r * r - x * x)
+
+    dot(x + 200, y + 200, 'black')
+    dot(x + 200, -y + 200, 'black')
+    dot(-x + 200, y + 200, 'black')
+    dot(-x + 200, -y + 200, 'black')
+    dot(y + 200, x + 200, 'black')
+    dot(y + 200, -x + 200, 'black')
+    dot(-y + 200, x + 200, 'black')
+    dot(-y + 200, -x + 200, 'black')
+    x++
+  } while (x < y)
+  // 画一个空心的圆
+
+  var r = 50
+  var x = 0
+  do {
+    var y = Math.sqrt(r * r - x * x)
+
+    dot(x + 200, y + 200, 'black')
+    dot(x + 200, -y + 200, 'black')
+    dot(-x + 200, y + 200, 'black')
+    dot(-x + 200, -y + 200, 'black')
+    dot(y + 200, x + 200, 'black')
+    dot(y + 200, -x + 200, 'black')
+    dot(-y + 200, x + 200, 'black')
+    dot(-y + 200, -x + 200, 'black')
+    x++
+    for (var i = -x + 200; i <= x + 200; i++) {
+      dot(i, y + 200, 'black')
+    }
+    for (var i = -x + 200; i <= x + 200; i++) {
+      dot(i, -y + 200, 'black')
+    }
+    for (var i = -x + 200; i <= x + 200; i++) {
+      dot(y + 200, i, 'black')
+    }
+    for (var i = -x + 200; i <= x + 200; i++) {
+      dot(-y + 200, i, 'black')
+    }
+
+  } while (x < y)
+  // 圆里面的正方形
+  var l = Math.sqrt(5000) / 2
+  for (var x = 200 - l; x < 200 + l; x++) {
+    for (var y = 200 - l; y < 200 + l; y++) {
+      dot(x, y, 'black')
+    }
+  }
+  // 画一个实心的圆
+
+  for (var x = 0; x < 400; x++) {
+    var y = Math.sin(x / 20) * 20
+    dot(x, y + 60, 'red')
+  }
+
+// 画一个大小合适的sin(x)的图像
+</script>
+
+</html>
