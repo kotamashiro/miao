@@ -72,7 +72,6 @@ var kotamashiro = function () {
       if (arr[i] == val)
         return i
     }
-
   }
 
 
@@ -85,7 +84,6 @@ var kotamashiro = function () {
 
 
   return {
-    compact, chunk, difference, concat, join, last, lastIndexOf, fill, findIndex,
-    findLastIndex, flatten, flattenDeep, flattenDepth, fromPairs, head, indexOf, initial, drop, dropRight, reverse, sortedIndex, every, filter, find, toArry, max, maxBy, min, minBy, sum, sumBy
+    compact, chunk, difference, concat, join, last, lastIndexOf,
   }
 }()
