@@ -54,9 +54,26 @@ var kotamashiro = function () {
     return res
   }
 
+  //获取array中的最后一个元素
+  function last(arr) {
+    return arr[arr.length - 1]
+  }
 
+  //这个方法类似_.indexOf ，区别是它是从右到左遍历array的元素。
+  function lastIndexOf(arr, val, number) {
+    var num = arr.length
+    if (number != undefined) {
+      num = number
+    }
+    if (!arr.has(val)) {
+      return -1
+    }
+    for (i = num; i > 0; i--) {
+      if (arr[i] == val)
+        return i
+    }
 
-
+  }
 
 
 
@@ -68,6 +85,7 @@ var kotamashiro = function () {
 
 
   return {
-    compact, chunk, difference, concat,
+    compact, chunk, difference, concat, join, last, lastIndexOf, fill, findIndex,
+    findLastIndex, flatten, flattenDeep, flattenDepth, fromPairs, head, indexOf, initial, drop, dropRight, reverse, sortedIndex, every, filter, find, toArry, max, maxBy, min, minBy, sum, sumBy
   }
 }()
