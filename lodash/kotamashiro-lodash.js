@@ -10,10 +10,8 @@ var kotamashiro = function () {
   }
   function chunk(ary, size) {
     var result = []
-    for (var i = 0; i < ary.length; i += size) {
-      for (var j = 0; j < size; j++) {
-        result[i] = ary.slice(j, j + size)
-      }
+    for (var i = 0, j = 0; i < ary.length; i += size, j++) {
+      result[j] = ary.slice(i, i + size)
     }
     return result
   }
