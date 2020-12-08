@@ -83,7 +83,7 @@ var kotamashiro = function () {
     if (n == 0) {
       return arr
     }
-    for (var i = n - 1; i < arr.length; i++) {
+    for (var i = n; i < arr.length; i++) {
       arr2.push(arr[i])
     } return arr2
 
