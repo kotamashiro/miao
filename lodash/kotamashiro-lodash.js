@@ -12,7 +12,7 @@ var kotamashiro = function () {
     var result = []
     for (var i = 0; i < ary.length; i += size) {
       for (var j = 0; j < size; j++) {
-        result[j] = ary.slice(i, i + size)
+        result[i] = ary.slice(j, j + size)
       }
     }
     return result
