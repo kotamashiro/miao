@@ -105,6 +105,11 @@ var kotamashiro = function () {
     } return arr2
 
   }
+  //使用 value 值来填充（替换） array，从start位置开始, 到end位置结束（但不包含end位置）。
+  function fill(arr, val, start, end) {
+
+
+  }
 
 
 
@@ -115,5 +120,5 @@ var kotamashiro = function () {
 
 
 
-  return { compact, chunk, difference, concat, join, last, lastIndexOf, drop, dropRight, }
+  return { compact, chunk, difference, concat, join, last, lastIndexOf, drop, dropRight, fill, }
 }()
