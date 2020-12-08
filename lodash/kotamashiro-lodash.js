@@ -49,7 +49,7 @@ var kotamashiro = function () {
   function join(arr, separator) {
     var res = ""
     for (var i = 0; i < arr.length - 1; i++) {
-      res += arr[i] + separator
+      res += arr[i] + '' + separator
     } res += arr[arr.length - 1]
     return res
   }
@@ -62,16 +62,48 @@ var kotamashiro = function () {
   //这个方法类似_.indexOf ，区别是它是从右到左遍历array的元素。
   function lastIndexOf(arr, val, number) {
     var num = arr.length
-    if (number != undefined) {
-      num = number
+    if (number == undefined) {
+      number = num - 1
     }
-    if (!arr.has(val)) {
-      return -1
-    }
-    for (i = num; i > 0; i--) {
-      if (arr[i] == val)
+    for (i = number; i >= 0; i--) {
+      if (arr[i] === val) {
         return i
+      }
+    } return -1
+  }
+  //创建一个切片数组，去除array前面的n个元素。
+  function drop(arr, n) {
+    var arr2 = []
+    if (n >= arr.length) {
+      return []
     }
+    if (n == undefined) {
+      n = 1
+    }
+    if (n == 0) {
+      return arr
+    }
+    for (var i = n - 1; i < arr.length; i++) {
+      arr2.push(arr[i])
+    } return arr2
+
+  }
+  //创建一个切片数组，去除array尾部的n个元素
+  function dropRight(arr, n) {
+    var arr2 = []
+    if (n >= arr.length) {
+      return []
+    }
+    if (n == undefined) {
+      n = 1
+    }
+    if (n == 0) {
+      return arr
+    }
+    for (var i = 0; i < arr.length - n; i++) {
+      arr2.push(arr[i])
+    } return arr2
+
   }
 
 
@@ -83,5 +115,5 @@ var kotamashiro = function () {
 
 
 
-  return { compact, chunk, difference, concat, join, last, lastIndexOf, }
+  return { compact, chunk, difference, concat, join, last, lastIndexOf, drop, dropRight, }
 }()
