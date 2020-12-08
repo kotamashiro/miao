@@ -22,22 +22,17 @@ var kotamashiro = function () {
   }
 
   //创建一个具有唯一array值的数组，每个值不包含在其他给定的数组中。
-  function difference(ary, val) {
-    var result = []
-    for (var i = 0; i < ary.length; i++) {
-      for (var j = 0; j < val.length; j++) {
-        if (ary[i] == val[j]) {
-          ary.shift(ary[i])
-          result = ary
-        }
-      }
+  function difference(ary, ...vals) {
+    const result = new Set()
+    for (let val of vals) {
+      for (let res of val) result.add(res)//把需要对比的数组展开到新数组
     }
-    return result
+    return ary.filter(res => !result.has(res))
   }
 
   //创建一个新数组，将array与任何数组 或 值连接在一起
   function concat(ary, vals) {
-    var result = [...ary]
+    const result = ary.slice()
 
     for (var i = 0; i < vals.length; i++) {
       if (Array.isArray(vals[i])) {
@@ -50,6 +45,14 @@ var kotamashiro = function () {
   }
 
 
+  //将 array 中的所有元素转换为由 separator 分隔的字符串。
+  function join(arr, separator) {
+    var res = ""
+    for (var i = 0; i < arr.length - 1; i++) {
+      res += arr[i] + separator
+    } res += arr[arr.length - 1]
+    return res
+  }
 
 
 
