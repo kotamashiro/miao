@@ -107,8 +107,14 @@ var kotamashiro = function () {
   }
   //使用 value 值来填充（替换） array，从start位置开始, 到end位置结束（但不包含end位置）。
   function fill(arr, val, start, end) {
-
-
+    if (start == undefined) {
+      start = 0
+      end = arr.length
+    }
+    for (var i = start; i < end; i++) {
+      arr[i] = val
+    }
+    return arr
   }
 
 
