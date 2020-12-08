@@ -83,7 +83,5 @@ var kotamashiro = function () {
 
 
 
-  return {
-    compact, chunk, difference, concat, join, last, lastIndexOf,
-  }
+  return { compact, chunk, difference, concat, join, last, lastIndexOf, }
 }()
