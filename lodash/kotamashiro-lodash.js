@@ -116,7 +116,7 @@ var kotamashiro = function () {
     }
     return arr
   }
-
+  function
 
 
 
