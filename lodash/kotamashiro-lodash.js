@@ -109,7 +109,7 @@ var kotamashiro = function () {
     return arr
   }
 
-  function fillIndex(array, predicate, fromIndex) {
+  function findIndex(array, predicate, fromIndex) {
     if (typeof (predicate) == 'function') {
       for (var i = fromIndex; i < array.length; i++) {
         if (array[i] == predicate) return i
@@ -160,6 +160,6 @@ var kotamashiro = function () {
     drop,
     dropRight,
     fill,
-    fillIndex
+    findIndex
   }
 }()
