@@ -141,8 +141,16 @@ var kotamashiro = function () {
 
   }
 
+  function head(arr) {
+    if (arr == null) {
+      return undefined
+    }
+    return arr[0]
+  }
 
+  function max() {
 
+  }
 
 
 
@@ -160,6 +168,7 @@ var kotamashiro = function () {
     drop,
     dropRight,
     fill,
-    findIndex
+    findIndex,
+    head
   }
 }()
