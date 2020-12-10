@@ -1,5 +1,4 @@
 
-
 var kotamashiro = function () {
   function compact(ary) {
     var result = []
@@ -64,6 +63,7 @@ var kotamashiro = function () {
       }
     } return -1
   }
+
   function drop(arr, n) {
     var arr2 = []
     if (n >= arr.length) {
@@ -80,6 +80,7 @@ var kotamashiro = function () {
     } return arr2
 
   }
+
   function dropRight(arr, n) {
     var arr2 = []
     if (n >= arr.length) {
@@ -96,6 +97,7 @@ var kotamashiro = function () {
     } return arr2
 
   }
+
   function fill(arr, val, start, end) {
     if (start == undefined) {
       start = 0
@@ -106,8 +108,24 @@ var kotamashiro = function () {
     }
     return arr
   }
-  function fillIndex(array, predicate) {
-    return array.indexOf(predicate)
+
+  function fillIndex(array, predicate, fromIndex) {
+    if (typeof (predicate) == 'function') {
+      for (var i = fromIndex; i < array.length; i++) {
+        if (array[i] == predicate) return i
+      }
+      return -1
+
+    } else if (Array.isArray(predicate)) {
+      for (var i = fromIndex; i < array.length; i++) {
+
+      }
+    } else if (typeof (predicate) == 'object') {
+
+    } else if (typeof (predicate) == 'string') {
+
+    }
+
 
   }
 
@@ -119,5 +137,17 @@ var kotamashiro = function () {
 
 
 
-  return { compact, chunk, difference, concat, join, last, lastIndexOf, drop, dropRight, fill, fillIndex }
+  return {
+    compact,
+    chunk,
+    difference,
+    concat,
+    join,
+    last,
+    lastIndexOf,
+    drop,
+    dropRight,
+    fill,
+    fillIndex
+  }
 }()
