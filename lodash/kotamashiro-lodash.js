@@ -118,14 +118,26 @@ var kotamashiro = function () {
 
     } else if (Array.isArray(predicate)) {
       for (var i = fromIndex; i < array.length; i++) {
-
-      }
+        for (let j in array[i]) {
+          if (predicate[0] == j && predicate[1] == array[i][j])
+            return i
+        }
+      } return -1
     } else if (typeof (predicate) == 'object') {
-
+      for (var i = fromIndex; i < array.length; i++) {
+        for (let j in array[i]) {
+          if (predicate[j] && predicate[j] == array[i][j])
+            return i
+        }
+      } return -1
     } else if (typeof (predicate) == 'string') {
-
+      for (var i = fromIndex; i < array.length; i++) {
+        for (let j in array[i]) {
+          if (array[i][predicate])
+            return i
+        }
+      } return -1
     }
-
 
   }
 
