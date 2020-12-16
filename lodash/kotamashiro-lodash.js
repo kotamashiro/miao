@@ -34,10 +34,12 @@ var kotamashiro = function () {
     }
     for (var i = 0; i < vals.length; i++) {
       if (Array.isArray(vals[i])) {
-        vals[i].forEach(it => {
-          result.push(it)
-        })
-      } else { result.push(vals[i]) }
+        for (var j = 0; j < vals[i].length; j++) {
+          result.push(vals[i][j])
+        }
+      } else {
+        result.push(vals[i])
+      }
     } return result
   }
 
@@ -169,7 +171,44 @@ var kotamashiro = function () {
     }
     return result
   }
+  function groupBy(arr, predicate) {
+    var result = []
+    for (var i = 0; i < arr.length; i++) {
+      var key = predicate(arr[i], i, arr)
+      if (!Array.isArray(result[key])) {
+        result[key] = []
+      } result[key].push(arr[i])
 
+    } return result
+  }
+  function sumBy(arr, pre) {
+    var sum = 0
+    for (var i = 0; i < arr.length; i++) {
+      sum += pre(arr[i, i, arr])
+    }
+    return sum
+  }
+
+  function mapValues(obj, map) {
+    var result = {}
+    for (let key in obj) {
+      var val = obj[key]
+      result[key] = map(val, key, obj)
+    }
+    return result
+  }
+
+  function mapkeys(obj, map) {
+    var result = {}
+    for (let key in obj) {
+      var val = obj[key]
+      result[map(val, key, obj)] = val
+    }
+    return result
+  }
+  function every(arr, f) {
+
+  }
 
 
 
@@ -188,6 +227,10 @@ var kotamashiro = function () {
     findIndex,
     head,
     isArray,
-    flattenDepth
+    flattenDepth,
+    groupBy,
+    sumBy,
+    mapValues,
+    mapkeys
   }
 }()
