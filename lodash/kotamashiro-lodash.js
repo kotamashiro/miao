@@ -26,19 +26,20 @@ var kotamashiro = function () {
     return ary.filter(res => !result.has(res))
   }
 
-  function concat(ary, vals) {
-    const result = ary.slice()
+  function concat(arr, vals) {
+    var result = []
 
+    for (var i = 0; i < arr.length; i++) {
+      result.push(arr[i])
+    }
     for (var i = 0; i < vals.length; i++) {
       if (Array.isArray(vals[i])) {
-        for (var j = 0; j < vals[i].length; j++) {
-          result.push(vals[i][j])
-        }
-      } else result.push(vals[i])
-    }
-    return result
+        vals[i].forEach(it => {
+          result.push(it)
+        })
+      } else { result.push(vals[i]) }
+    } return result
   }
-
 
   function join(arr, separator) {
     var res = ""
@@ -151,7 +152,23 @@ var kotamashiro = function () {
   function max() {
 
   }
-
+  function isArray(val) {
+    return Object.prototype.toString.call(val) === '[object Array]'
+  }
+  function flattenDepth(arr, depth = 1) {
+    if (depth == 0) {
+      return arr.slice()
+    }
+    var result = []
+    for (var i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        result.push(flattenDepth(arr[i], depth - 1))
+      } else {
+        result.push(arr[i])
+      }
+    }
+    return result
+  }
 
 
 
@@ -169,6 +186,8 @@ var kotamashiro = function () {
     dropRight,
     fill,
     findIndex,
-    head
+    head,
+    isArray,
+    flattenDepth
   }
 }()
