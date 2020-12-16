@@ -144,8 +144,17 @@ var kotamashiro = function () {
     return arr[0]
   }
 
-  function max() {
-
+  function max(array) {
+    if (array == null) {
+      return undefined
+    }
+    var max = []
+    for (var i = 0; i < array.length - 1; i++) {
+      if (array[i] < array[i + 1]) {
+        max = array[i + 1]
+      } max = array[i]
+    }
+    return max
   }
   function identity(val) {
     return val
@@ -182,7 +191,7 @@ var kotamashiro = function () {
     var result = []
     for (var i = 0; i < arr.length; i++) {
       var key = predicate(arr[i], i, arr)
-      if (!Array.isArray(result[key])) {
+      if (!arr.isArray(result[key])) {
         result[key] = []
       } result[key].push(arr[i])
 
@@ -250,7 +259,8 @@ var kotamashiro = function () {
     identity,
     every,
     flatten,
-    flattenDeep
+    flattenDeep,
+    max
 
   }
 }()
