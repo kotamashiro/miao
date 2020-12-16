@@ -162,7 +162,7 @@ var kotamashiro = function () {
     var result = []
     for (var i = 0; i < arr.length; i++) {
       if (Array.isArray(arr[i])) {
-        result.push(flattenDepth(arr[i], depth - 1))
+        result.push(...flattenDepth(arr[i], depth - 1))
       } else {
         result.push(arr[i])
       }
