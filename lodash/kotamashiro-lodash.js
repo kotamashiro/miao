@@ -147,9 +147,23 @@ var kotamashiro = function () {
   function max() {
 
   }
+  function identity(val) {
+    return val
+  }
+
+
   function isArray(val) {
     return Object.prototype.toString.call(val) === '[object Array]'
   }
+
+  function flatten(array) {
+    return flattenDepth(array, 1)
+
+  }
+  function flattenDeep(array) {
+    return flattenDepth(array, Infinity)
+  }
+
   function flattenDepth(arr, depth = 1) {
     if (depth == 0) {
       return arr.slice()
@@ -191,7 +205,7 @@ var kotamashiro = function () {
     return result
   }
 
-  function mapkeys(obj, map) {
+  function mapKeys(obj, map) {
     var result = {}
     for (let key in obj) {
       var val = obj[key]
@@ -224,6 +238,11 @@ var kotamashiro = function () {
     groupBy,
     sumBy,
     mapValues,
-    mapkeys
+    mapKeys,
+    identity,
+    every,
+    flatten,
+    flattenDeep
+
   }
 }()
