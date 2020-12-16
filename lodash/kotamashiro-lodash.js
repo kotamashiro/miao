@@ -27,11 +27,7 @@ var kotamashiro = function () {
   }
 
   function concat(arr, vals) {
-    var result = []
-
-    for (var i = 0; i < arr.length; i++) {
-      result.push(arr[i])
-    }
+    var result = arr.slice()
     for (var i = 0; i < vals.length; i++) {
       if (Array.isArray(vals[i])) {
         for (var j = 0; j < vals[i].length; j++) {
@@ -40,7 +36,8 @@ var kotamashiro = function () {
       } else {
         result.push(vals[i])
       }
-    } return result
+    }
+    return result
   }
 
   function join(arr, separator) {
@@ -135,13 +132,10 @@ var kotamashiro = function () {
       } return -1
     } else if (typeof (predicate) == 'string') {
       for (var i = fromIndex; i < array.length; i++) {
-        for (let j in array[i]) {
-          if (array[i][predicate])
-            return i
-        }
+        if (array[i][predicate])
+          return i
       } return -1
     }
-
   }
 
   function head(arr) {
