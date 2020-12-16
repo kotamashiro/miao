@@ -29,15 +29,14 @@ var kotamashiro = function () {
   function concat(arr, vals) {
     var result = arr.slice()
     for (var i = 0; i < vals.length; i++) {
-      if (Array.isArray(vals[i])) {
+      if (arr.isArray(vals[i])) {
         for (var j = 0; j < vals[i].length; j++) {
           result.push(vals[i][j])
         }
       } else {
         result.push(vals[i])
       }
-    }
-    return result
+    } return result
   }
 
   function join(arr, separator) {
