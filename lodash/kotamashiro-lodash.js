@@ -188,10 +188,17 @@ var kotamashiro = function () {
 
     } return result
   }
-  function sumBy(arr, pre) {
+  function sumBy(arr, iteratee) {
     var sum = 0
     for (var i = 0; i < arr.length; i++) {
-      sum += pre(arr[i, i, arr])
+      sum += iteratee(arr[i])
+    }
+    return sum
+  }
+  function sum(arr) {
+    var sum = 0
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i]
     }
     return sum
   }
@@ -237,6 +244,7 @@ var kotamashiro = function () {
     flattenDepth,
     groupBy,
     sumBy,
+    sum,
     mapValues,
     mapKeys,
     identity,
