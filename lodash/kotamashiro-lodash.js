@@ -108,34 +108,37 @@ var kotamashiro = function () {
     return arr
   }
 
-  function findIndex(array, predicate, fromIndex) {
-    if (typeof (predicate) == 'function') {
+  function findIndex(array, f, fromIndex) {
+    if (typeof (f) == 'function') {
       for (var i = fromIndex; i < array.length; i++) {
-        if (array[i] == predicate) return i
+        if (f(array[i])) return i
       }
       return -1
 
-    } else if (Array.isArray(predicate)) {
+    } else if (Array.isArray(f)) {
+      let key = f[0]
+      let val = f[1]
+      for (var i = fromIndex; i < array.length; i++) {
+        if (array[i][key] == val) return i
+      }
+      return -1
+    } else if (typeof (f) == 'object') {
       for (var i = fromIndex; i < array.length; i++) {
         for (let j in array[i]) {
-          if (predicate[0] == j && predicate[1] == array[i][j])
+          if (f[j] && f[j] == array[i][j])
             return i
         }
       } return -1
-    } else if (typeof (predicate) == 'object') {
+
+    } else if (typeof (f) == 'string') {
+      let key = f[0]
       for (var i = fromIndex; i < array.length; i++) {
-        for (let j in array[i]) {
-          if (predicate[j] && predicate[j] == array[i][j])
-            return i
-        }
-      } return -1
-    } else if (typeof (predicate) == 'string') {
-      for (var i = fromIndex; i < array.length; i++) {
-        if (array[i][predicate])
+        if (array[i][key])
           return i
       } return -1
     }
   }
+
 
   function head(arr) {
     if (arr == null) {
@@ -145,17 +148,35 @@ var kotamashiro = function () {
   }
 
   function max(array) {
-    if (array == null) {
+    if (array.length == 0) {
       return undefined
     }
-    var max = []
+    var max = array[0]
     for (var i = 0; i < array.length - 1; i++) {
-      if (array[i] < array[i + 1]) {
-        max = array[i + 1]
-      } max = array[i]
+      max = Math.max(max, array[i])
     }
     return max
   }
+
+  function maxBy(array, iteratee) {
+    var max = -Infinity
+    var sum
+    if (typeof iteratee == 'function') {
+      for (let i of array) {
+        if (max < iteratee[i])
+          max = iteratee[i]
+        sum = i
+      }
+    } else {
+      for (let i of array) {
+        if (max < iteratee[i])
+          max = iteratee[i]
+        sum = i
+      }
+    }
+    return sum
+  }
+
   function identity(val) {
     return val
   }
@@ -187,7 +208,7 @@ var kotamashiro = function () {
     }
     return result
   }
-  function groupBy(arr, predicate) {
+  function groupBy(arr, iteratee) {
     var result = []
     for (var i = 0; i < arr.length; i++) {
       var key = predicate(arr[i], i, arr)
@@ -197,13 +218,22 @@ var kotamashiro = function () {
 
     } return result
   }
+
   function sumBy(arr, iteratee) {
     var sum = 0
-    for (var i = 0; i < arr.length; i++) {
-      sum += iteratee(arr[i])
+    if (typeof iteratee == 'function') {
+      for (var val of arr) {//val is key
+        sum += iteratee(val)
+      }
+    } else {
+      for (var val of arr) {
+        sum += (val[iteratee])//val is obj
+      }
+
     }
     return sum
   }
+
   function sum(arr) {
     var sum = 0
     for (var i = 0; i < arr.length; i++) {
@@ -229,8 +259,35 @@ var kotamashiro = function () {
     }
     return result
   }
-  function every(arr, f) {
+  function every(c, boolean) {
+    if (boolean != Boolean) {
+      if (findIndex(c, boolean) != -1) {
+        return true
+      }
+      return false
+    }
+    for (let e of c) {
+      if (typeof e != 'boolean') {
+        return false
+      } return true
+    }
 
+  }
+  function Set(in ) {
+    this.elements = []
+
+  }
+  function property(path) {
+    var names = path.split('.')
+    return function (obj) {
+      for (var name of names) {
+        if (name in obj) {
+          obj = obj[name]
+        } else {
+          return
+        }
+      } return obj
+    }
   }
 
 
@@ -260,7 +317,11 @@ var kotamashiro = function () {
     every,
     flatten,
     flattenDeep,
-    max
+    max,
+    maxBy,
+    Set,
+    property
+
 
   }
 }()
