@@ -348,8 +348,17 @@ var kotamashiro = function () {
   }
 
   function intersection(...args) {
-    return intersectionBy(...args, it => it)
-
+    var result = []
+    for (var i = 0; i < args[0].length; i++) {
+      for (var j = 1; j < args.length; j++) {
+        if (!args[j].includes(arg[0][i])) {//如果第j个数组不含有交集直接开始验证下一个数
+          break
+        }
+      } if (j == args.length) {//此时所有数组都包含arg[0][i]
+        result.push(arg[0][i])
+      }
+    }
+    return result
   }
 
   //此为JSON函数
@@ -413,6 +422,7 @@ var kotamashiro = function () {
     flattenDeep,
     max,
     maxBy,
-    property
+    property,
+    intersection
   }
 }()
