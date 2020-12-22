@@ -208,6 +208,7 @@ var kotamashiro = function () {
     }
     return result
   }
+
   function groupBy(arr, iteratee) {
     var result = []
     for (var i = 0; i < arr.length; i++) {
@@ -259,6 +260,7 @@ var kotamashiro = function () {
     }
     return result
   }
+
   function every(c, boolean) {
     if (boolean != Boolean) {
       if (findIndex(c, boolean) != -1) {
@@ -271,12 +273,13 @@ var kotamashiro = function () {
         return false
       } return true
     }
-
   }
-  function Set(in ) {
+
+  function Set() {
     this.elements = []
 
   }
+
   function property(path) {
     var names = path.split('.')
     return function (obj) {
@@ -291,9 +294,100 @@ var kotamashiro = function () {
   }
 
 
+  function ary(f, n = f.length) {
+    return function (...args) {
+      return
+    }
+  }
 
+  function before(n, func) {
+    var c = 0
+    var result
+    return function (...args) {
+      if (c < n) {
+        return func.call(this, ...args)
+        c++
+      } else {
+        return result
+      }
+    }
+  }
+
+  function after(n, func) {
+    var c = 0
+    return function (...args) {
+      if (c > n) {
+        return func.call(this, ...args)
+      }
+    }
+  }
+
+  function flip(func) {
+    return function (...args) {
+      return func(...args.reverse())
+
+    }
+  }
+
+  function negate(pre) {
+    return function (...args) {
+      return !pre(...args)
+    }
+  }
+
+  function some() {
+
+  }
+
+  function intersectionBy(arr, iteratee) {//求交集
+    if (Array.isArray(arr)) {
+
+    } else {
+
+    }
+  }
+
+  function intersection(...args) {
+    return intersectionBy(...args, it => it)
+
+  }
+
+  //此为JSON函数
+  function stringify(val) {
+    if (Array.isArray(val)) {
+      return '[' + val.map(stringify) + ']'
+    }
+    if (val && typeof val == 'object') {
+      var result = '({'
+      for (var k in val) {
+        var v = val[key]
+        result += '"' + k + '":' + stringify(v) + ','
+      }
+      result = result.slice(0, -1)
+      result += '})'
+      return result
+    }
+    if (val === null) {
+      return "null"
+    }
+    if (val === true) {
+      return "true"
+    }
+    if (val === false) {
+      return "false"
+    }
+    if (typeof val === 'string') {
+      return '"' + val + '"'
+    }
+    if (typeof val === 'number') {
+      return '' + val
+    }
+  }
 
   return {
+    some,
+    negate,
+    flip,
     compact,
     chunk,
     difference,
@@ -319,9 +413,6 @@ var kotamashiro = function () {
     flattenDeep,
     max,
     maxBy,
-    Set,
     property
-
-
   }
 }()
