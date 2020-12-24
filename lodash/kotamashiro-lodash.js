@@ -34,7 +34,6 @@ var kotamashiro = function () {
       }
     }
     return result
-
   }
 
   function difference(ary, ...vals) {
@@ -107,6 +106,7 @@ var kotamashiro = function () {
     } return arr2
 
   }
+
   function dropWhile(ary, pre) {
     var res = []
     for (var i = 0; i < ary.length; i++) {
@@ -173,8 +173,8 @@ var kotamashiro = function () {
     for (var i = 0; i < arr.length - n; i++) {
       arr2.push(arr[i])
     } return arr2
-
   }
+
   function indexOf(ary, val, from = 0) {
     for (var i = from; i < ary.length; i++) {
       if (ary[i] == val)
@@ -279,6 +279,7 @@ var kotamashiro = function () {
     return flattenDepth(array, 1)
 
   }
+
   function flattenDeep(array) {
     return flattenDepth(array, Infinity)
   }
@@ -364,10 +365,6 @@ var kotamashiro = function () {
     }
   }
 
-  function Set() {
-    this.elements = []
-
-  }
 
   function property(path) {
     var names = path.split('.')
@@ -425,9 +422,7 @@ var kotamashiro = function () {
     }
   }
 
-  function some() {
 
-  }
 
   function intersectionBy(arr, iteratee) {//求交集
     if (Array.isArray(arr)) {
@@ -482,6 +477,7 @@ var kotamashiro = function () {
       return '' + val
     }
   }
+
   function isSorted(ary) {
     for (var i = 0; i < ary.length - 1; i++) {
       if (ary[i] > ary[i + 1]) {
@@ -491,7 +487,7 @@ var kotamashiro = function () {
   }
 
   return {
-    some,
+
     initial,
     negate,
     flip,
@@ -526,5 +522,6 @@ var kotamashiro = function () {
     property,
     intersection,
     indexOf
+
   }
 }()
