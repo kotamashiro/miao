@@ -18,7 +18,7 @@ var kotamashiro = function () {
     return result
   }
 
-  function differenceBy(ary, ...vals, iteratee) {
+  function differenceBy(ary, vals, iteratee) {
     var result = []
     var obj = {}
     for (var i = 0; i < vals.length; i++) {
@@ -28,8 +28,8 @@ var kotamashiro = function () {
       }
     }
     for (var i = 0; i < vals.length; i++) {
-      var k = iteratee(ary[i])
-      if (!k in obj) {
+
+      if (!iteratee(ary[i]) in obj) {
         result.push(ary[i])
       }
     }
@@ -487,7 +487,7 @@ var kotamashiro = function () {
   }
 
   return {
-    // initial,
+    initial,
     negate,
     flip,
     compact,
@@ -500,9 +500,9 @@ var kotamashiro = function () {
     lastIndexOf,
     drop,
     dropRight,
-    // dropWhile,
-    // dropRightWhile,
-    // indexOf,
+    dropWhile,
+    dropRightWhile,
+    indexOf,
     fill,
     findIndex,
     head,
