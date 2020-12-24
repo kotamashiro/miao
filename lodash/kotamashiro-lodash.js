@@ -487,7 +487,7 @@ var kotamashiro = function () {
   }
 
   return {
-    initial,
+    // initial,
     negate,
     flip,
     compact,
@@ -500,9 +500,9 @@ var kotamashiro = function () {
     lastIndexOf,
     drop,
     dropRight,
-    dropWhile,
-    dropRightWhile,
-    indexOf,
+    // dropWhile,
+    // dropRightWhile,
+    // indexOf,
     fill,
     findIndex,
     head,
@@ -520,6 +520,6 @@ var kotamashiro = function () {
     max,
     maxBy,
     property,
-    intersection
+    intersection,
   }
 }()
