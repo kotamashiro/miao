@@ -18,12 +18,40 @@ var kotamashiro = function () {
     return result
   }
 
-  function difference(ary, ...vals) {
-    const result = new Set()
-    for (let val of vals) {
-      for (let res of val) result.add(res)
+  function differenceBy(ary, ...vals, iteratee) {
+    var result = []
+    var obj = {}
+    for (var i = 0; i < vals.length; i++) {
+      for (var j = 0; j < vals[i].length; j++) {
+        var key = iteratee(vals[i][j])
+        obj[key] = 1
+      }
     }
-    return ary.filter(res => !result.has(res))
+    for (var i = 0; i < vals.length; i++) {
+      var k = iteratee(ary[i])
+      if (!k in obj) {
+        result.push(ary[i])
+      }
+    }
+    return result
+
+  }
+
+  function difference(ary, ...vals) {
+    var result = []
+    var obj = {}
+    for (var i = 0; i < vals.length; i++) {
+      for (var j = 0; j < vals[i].length; j++) {
+        var key = vals[i][j]
+        obj[key] = 1
+      }
+    }
+    for (var i = 0; i < vals.length; i++) {
+      if (!ary[i] in obj) {
+        result.push(ary[i])
+      }
+    }
+    return result
   }
 
   function concat(arr, vals) {
@@ -79,6 +107,57 @@ var kotamashiro = function () {
     } return arr2
 
   }
+  function dropWhile(ary, pre) {
+    var res = []
+    for (var i = 0; i < ary.length; i++) {
+      if (typeof pre == 'string') {
+        if (pre in ary[i]) {
+          res.push(ary[i])
+        }
+      }
+      if (typeof pre == 'function') {
+        if (!pre(ary[i])) {
+          res.push(ary[i])
+        }
+      }
+      if (typeof pre == 'object') {
+        if (pre[key] !== ary[i][key]) {
+          res.push(ary[i])
+        }
+      }
+      if (Array.isArray(pre)) {
+        if (ary[i][pre[0]] !== pre[1]) {
+          res.push(ary[i])
+        }
+      }
+    } return res
+  }
+
+  function dropRightWhile(ary, pre) {
+    var res = []
+    for (var i = 0; i < ary.length; i++) {
+      if (typeof pre == 'string') {
+        if (pre in ary[i]) {
+          res.push(ary[i])
+        }
+      }
+      if (typeof pre == 'function') {
+        if (!pre(ary[i])) {
+          res.push(ary[i])
+        }
+      }
+      if (typeof pre == 'object') {
+        if (pre[key] !== ary[i][key]) {
+          res.push(ary[i])
+        }
+      }
+      if (Array.isArray(pre)) {
+        if (ary[i][pre[0]] !== pre[1]) {
+          res.push(ary[i])
+        }
+      }
+    } return res
+  }
 
   function dropRight(arr, n) {
     var arr2 = []
@@ -95,6 +174,16 @@ var kotamashiro = function () {
       arr2.push(arr[i])
     } return arr2
 
+  }
+  function indexOf(ary, val, from = 0) {
+    for (var i = from; i < ary.length; i++) {
+      if (ary[i] == val)
+        return i
+    }
+  }
+
+  function initial(ary) {
+    return ary.slice(0, -2)
   }
 
   function fill(arr, val, start, end) {
@@ -316,6 +405,7 @@ var kotamashiro = function () {
   function after(n, func) {
     var c = 0
     return function (...args) {
+      c++
       if (c > n) {
         return func.call(this, ...args)
       }
@@ -351,11 +441,11 @@ var kotamashiro = function () {
     var result = []
     for (var i = 0; i < args[0].length; i++) {
       for (var j = 1; j < args.length; j++) {
-        if (!args[j].includes(arg[0][i])) {//如果第j个数组不含有交集直接开始验证下一个数
+        if (!args[j].includes(args[0][i])) {//如果第j个数组不含有交集直接开始验证下一个数
           break
         }
       } if (j == args.length) {//此时所有数组都包含arg[0][i]
-        result.push(arg[0][i])
+        result.push(args[0][i])
       }
     }
     return result
@@ -392,20 +482,31 @@ var kotamashiro = function () {
       return '' + val
     }
   }
+  function isSorted(ary) {
+    for (var i = 0; i < ary.length - 1; i++) {
+      if (ary[i] > ary[i + 1]) {
+        return false
+      }
+    } return true
+  }
 
   return {
     some,
+    initial,
     negate,
     flip,
     compact,
     chunk,
     difference,
+    differenceBy,
     concat,
     join,
     last,
     lastIndexOf,
     drop,
     dropRight,
+    dropWhile,
+    dropRightWhile,
     fill,
     findIndex,
     head,
@@ -423,6 +524,7 @@ var kotamashiro = function () {
     max,
     maxBy,
     property,
-    intersection
+    intersection,
+    indexOf
   }
 }()
