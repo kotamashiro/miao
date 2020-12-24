@@ -18,23 +18,23 @@ var kotamashiro = function () {
     return result
   }
 
-  function differenceBy(ary, vals, iteratee) {
-    var result = []
-    var obj = {}
-    for (var i = 0; i < vals.length; i++) {
-      for (var j = 0; j < vals[i].length; j++) {
-        var key = iteratee(vals[i][j])
-        obj[key] = 1
-      }
-    }
-    for (var i = 0; i < vals.length; i++) {
+  // function differenceBy(ary, vals, iteratee) {
+  //   var result = []
+  //   var obj = {}
+  //   for (var i = 0; i < vals.length; i++) {
+  //     for (var j = 0; j < vals[i].length; j++) {
+  //       var key = iteratee(vals[i][j])
+  //       obj[key] = 1
+  //     }
+  //   }
+  //   for (var i = 0; i < vals.length; i++) {
 
-      if (!iteratee(ary[i]) in obj) {
-        result.push(ary[i])
-      }
-    }
-    return result
-  }
+  //     if (!iteratee(ary[i]) in obj) {
+  //       result.push(ary[i])
+  //     }
+  //   }
+  //   return result
+  // }
 
   function difference(ary, ...vals) {
     var result = []
