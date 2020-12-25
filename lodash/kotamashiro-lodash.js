@@ -112,8 +112,10 @@ var kotamashiro = function () {
         }
       }
       if (typeof pre == 'object') {
-        if (pre[key] !== ary[i][key]) {
-          res.push(ary[i])
+        for (key in pre) {
+          if (pre[key] !== ary[i][key]) {
+            res.push(ary[i])
+          }
         }
       }
       if (Array.isArray(pre)) {
