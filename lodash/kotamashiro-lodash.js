@@ -3,15 +3,8 @@ var kotamashiro = function () {
 
   function difference(ary, ...vals) {
     var result = []
-    var obj = {}
-    for (var i = 0; i < vals.length; i++) {
-      for (var j = 0; j < vals[i].length; j++) {
-        var key = vals[i][j]
-        obj[key] = 1
-      }
-    }
-    for (var i = 0; i < vals.length; i++) {
-      if (!(ary[i] in obj)) {
+    for (var i = 0; i < ary.length; i++) {
+      if (!(vals.includes(ary[i]))) {
         result.push(ary[i])
       }
     }
