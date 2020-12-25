@@ -11,7 +11,7 @@ var kotamashiro = function () {
       }
     }
     for (var i = 0; i < vals.length; i++) {
-      if (!ary[i] in obj) {
+      if (!(ary[i] in obj)) {
         result.push(ary[i])
       }
     }
@@ -148,7 +148,7 @@ var kotamashiro = function () {
   }
 
   function initial(ary) {
-    return ary.slice(0, -2)
+    return ary.slice(0, ary.length - 1)
   }
   function compact(ary) {
     var result = []
