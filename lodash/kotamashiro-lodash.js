@@ -387,28 +387,8 @@ var kotamashiro = function () {
     }
   }
 
-  function before(n, func) {
-    var c = 0
-    var result
-    return function (...args) {
-      if (c < n) {
-        return func.call(this, ...args)
-        c++
-      } else {
-        return result
-      }
-    }
-  }
 
-  function after(n, func) {
-    var c = 0
-    return function (...args) {
-      c++
-      if (c > n) {
-        return func.call(this, ...args)
-      }
-    }
-  }
+
 
   function flip(func) {
     return function (...args) {
@@ -426,11 +406,7 @@ var kotamashiro = function () {
 
 
   function intersectionBy(arr, iteratee) {//求交集
-    if (Array.isArray(arr)) {
 
-    } else {
-
-    }
   }
 
   function intersection(...args) {
@@ -447,7 +423,7 @@ var kotamashiro = function () {
     return result
   }
 
-  //此为JSON函数
+
   function stringify(val) {
     if (Array.isArray(val)) {
       return '[' + val.map(stringify) + ']'
@@ -479,13 +455,6 @@ var kotamashiro = function () {
     }
   }
 
-  function isSorted(ary) {
-    for (var i = 0; i < ary.length - 1; i++) {
-      if (ary[i] > ary[i + 1]) {
-        return false
-      }
-    } return true
-  }
 
   return {
     initial,
