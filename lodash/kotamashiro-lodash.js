@@ -235,6 +235,16 @@ var kotamashiro = function () {
     return obj
   }
 
+  function pull(ary, ...vals) {
+    var res = []
+    for (var i = 0; i < ary.length; i++) {
+      for (var j = 0; j < vals.length; j++) {
+        if (vals[j] !== ary[i]) {
+          res.push(vals[i])
+        }
+      }
+    } return res
+  }
 
   function head(arr) {
     if (arr == null) {
@@ -464,6 +474,7 @@ var kotamashiro = function () {
 
   return {
     initial,
+    pull,
     negate,
     flip,
     compact,
