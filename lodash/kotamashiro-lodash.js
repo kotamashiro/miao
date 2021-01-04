@@ -15,17 +15,16 @@ var kotamashiro = function () {
     return result
   }
 
-  function concat(arr, vals) {
-    var result = arr.slice()
-    for (var i = 0; i < vals.length; i++) {
-      if (arr.isArray(vals[i])) {
-        for (var j = 0; j < vals[i].length; j++) {
-          result.push(vals[i][j])
-        }
+  function concat(ary, ...values) {
+    let res = ary
+    for (let i = 0; i < values.length; i++) {
+      if (Array.isArray(values[i])) {
+        res.push(...values[i])
       } else {
-        result.push(vals[i])
+        res.push(values[i])
       }
-    } return result
+    }
+    return res
   }
 
   function join(arr, separator) {
@@ -69,7 +68,7 @@ var kotamashiro = function () {
 
   }
 
-  function dropWhile(array, pre) {
+  function dropWhile(array, predicate) {
 
     for (let i = 0; i < array.length; i++) {
       if (predicate(array[i], pre)) { } else {
