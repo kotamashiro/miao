@@ -190,35 +190,41 @@ var kotamashiro = function () {
     return arr
   }
 
-  function findIndex(array, f, fromIndex) {
-    if (typeof (f) == 'function') {
-      for (var i = fromIndex; i < array.length; i++) {
-        if (f(array[i])) return i
-      }
-      return -1
-
-    } else if (Array.isArray(f)) {
-      let key = f[0]
-      let val = f[1]
-      for (var i = fromIndex; i < array.length; i++) {
-        if (array[i][key] == val) return i
-      }
-      return -1
-    } else if (typeof (f) == 'object') {
-      for (var i = fromIndex; i < array.length; i++) {
-        for (let j in array[i]) {
-          if (f[j] && f[j] == array[i][j])
-            return i
-        }
-      } return -1
-
-    } else if (typeof (f) == 'string') {
-      let key = f[0]
-      for (var i = fromIndex; i < array.length; i++) {
-        if (array[i][key])
+  function findIndex(array, predicate, fromIndex) {
+    for (var i = fromIndex; i < array.length; i++) {
+      if (typeof predicate == 'function') {
+        if (predicate(array[i])) {
           return i
-      } return -1
+        }
+      } else if (typeof predicate == 'string') {
+        if (array[i][predicate] == true) {
+          return i
+        }
+      } else if (Array.isArray(predicate)) {
+        var flag = true
+        for (var j = 0; j < predicate.length; j += 2) {
+          if (array[i][predicate[j]] != predicate[j + 1]) {
+            flag = false
+            break
+          }
+        }
+        if (flag == true) {
+          return i
+        }
+      } else if (typeof predicate == 'object') {
+        var flag = true
+        for (key in predicate) {
+          if (predicate[key] != array[i][key]) {
+            flag = false
+            break
+          }
+        }
+        if (flag == true) {
+          return i
+        }
+      }
     }
+    return -1
   }
 
 
