@@ -69,31 +69,16 @@ var kotamashiro = function () {
 
   }
 
-  function dropWhile(ary, pre) {
-    var res = []
-    for (var i = 0; i < ary.length; i++) {
-      if (typeof pre == 'string') {
-        if (pre in ary[i]) {
-          res.push(ary[i])
-        }
+  function dropWhile(array, pre) {
+
+    for (let i = 0; i < array.length; i++) {
+      if (predicate(array[i], pre)) { } else {
+        return array.slice(i)
       }
-      if (typeof pre == 'function') {
-        if (!pre(ary[i])) {
-          res.push(ary[i])
-        }
-      }
-      if (typeof pre == 'object') {
-        if (pre[key] !== ary[i][key]) {
-          res.push(ary[i])
-        }
-      }
-      if (Array.isArray(pre)) {
-        if (ary[i][pre[0]] !== pre[1]) {
-          res.push(ary[i])
-        }
-      }
-    } return res
+    }
+    return array
   }
+
 
   function dropRightWhile(ary, pre) {
     var res = []
