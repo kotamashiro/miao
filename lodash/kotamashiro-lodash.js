@@ -68,14 +68,37 @@ var kotamashiro = function () {
 
   }
 
-  function dropWhile(array, predicate) {
-
-    for (let i = 0; i < array.length; i++) {
-      if (predicate(array[i], pre)) { } else {
-        return array.slice(i)
+  function dropWhile(ary, predicate) {
+    var type = Object.prototype.toString.call(predicate)
+    var res = []
+    for (var i = 0; i < ary.length; i++) {
+      if (type === '[object Function]') {
+        if (predicate(ary[i]) == false) {
+          res.push(...ary.slice(i))
+          break
+        }
+        continue
+      }
+      if (type === '[object String]') {
+        if (predicate in ary[i]) {
+          res.push(ary[i])
+        }
+      }
+      if (type === '[object Object]') {
+        for (var key in ary[i]) {
+          if (predicate[key] !== ary[i][key]) {
+            res.push(ary[i])
+            break
+          }
+        }
+      }
+      if (type === '[object Array]') {
+        if (ary[i][predicate[0]] !== predicate[1]) {
+          res.push(ary[i])
+        }
       }
     }
-    return array
+    return res
   }
 
 
@@ -196,6 +219,14 @@ var kotamashiro = function () {
           return i
       } return -1
     }
+  }
+
+
+  function fromPairs(ary) {
+    var obj = {}
+    for (let i = 0; i < ary.length; i++)
+      obj[ary[i][0]] = ary[i][1]
+    return obj
   }
 
 
@@ -432,7 +463,7 @@ var kotamashiro = function () {
     compact,
     chunk,
     difference,
-
+    fromPairs,
     concat,
     join,
     last,
