@@ -80,32 +80,35 @@ var kotamashiro = function () {
   }
 
 
-  function dropRightWhile(ary, pre) {
+  function dropRightWhile(ary, predicate) {
+    var type = Object.prototype.toString.call(predicate)
     var res = []
     for (var i = 0; i < ary.length; i++) {
-      if (typeof pre == 'string') {
-        if (pre in ary[i]) {
+      if (type === '[object Function]') {
+        if (!predicate(ary[i])) {
           res.push(ary[i])
         }
       }
-      if (typeof pre == 'function') {
-        if (!pre(ary[i])) {
+      if (type === '[object String]') {
+        if (predicate in ary[i]) {
           res.push(ary[i])
         }
       }
-      if (typeof pre == 'object') {
-        for (key in pre) {
-          if (pre[key] !== ary[i][key]) {
+      if (type === '[object Object]') {
+        for (var key in ary[i]) {
+          if (predicate[key] !== ary[i][key]) {
             res.push(ary[i])
+            break
           }
         }
       }
-      if (Array.isArray(pre)) {
-        if (ary[i][pre[0]] !== pre[1]) {
+      if (type === '[object Array]') {
+        if (ary[i][predicate[0]] !== predicate[1]) {
           res.push(ary[i])
         }
       }
-    } return res
+    }
+    return res
   }
 
   function dropRight(arr, n) {
