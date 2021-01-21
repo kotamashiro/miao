@@ -473,7 +473,7 @@ var kotamashiro = function () {
 
   function reverse(arr) {
     var res = []
-    for (var i = arr.length; i > 1; i--) {
+    for (var i = arr.length - 1; i > 1; i--) {
       res.push(arr[i])
     }
     return res
