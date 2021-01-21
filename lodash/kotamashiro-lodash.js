@@ -471,8 +471,103 @@ var kotamashiro = function () {
     }
   }
 
+  function reverse(arr) {
+    var res = []
+    for (var i = arr.length; i > 1; i--) {
+      res.push(arr[i])
+    }
+    return res
+  }
+
+  function sortedIndex(array, value) {
+    for (var i = 0; i < array.length; i++) {
+      if (value <= array[i]) {
+        return i
+      }
+    }
+  }
+  function union(...array) {
+    var map = {}
+    var res = []
+    var arrays = [].concat(...array)
+    for (var key of arrays) {
+      if (!map[key]) {
+        map[key] = 1
+        res.push(key)
+      }
+    }
+    return res
+  }
+  function unionBy(...args) {
+    let iteratee = args[args.length - 1]
+    let result = []
+    let map = {}
+    if (typeof (iteratee) == 'function') {
+      for (let i = 0; i < args.length - 1; i++) {
+        for (let j = 0; j < args[i].length; j++) {
+          if (!(iteratee(args[i][j]) in map)) {
+            map[iteratee(args[i][j])] = 1
+            result.push(args[i][j])
+          }
+        }
+      }
+    } else
+      if (typeof (iteratee) == 'string') {
+        for (let i = 0; i < args.length - 1; i++) {
+          for (let j = 0; j < args[i].length; j++) {
+            if (!(args[i][j][iteratee] in map)) {
+              map[args[i][j][iteratee]] = 1
+              result.push(args[i][j])
+            }
+          }
+        }
+      }
+    return result
+
+  }
+  function uniq(array) {
+    var map = {}
+    var res = []
+    for (var key of array) {
+      if (!map[key]) {
+        map[key] = 1
+        res.push(key)
+      }
+    }
+    return res
+
+  }
+
+  function uniqBy(array, iteratee) {
+    var result = []
+    var arr = []
+    if (typeof iteratee == 'string') {
+      for (var item of array) {
+        if (!arr.includes(item[iteratee])) {
+          arr.push(item[iteratee])
+          result.push(item)
+        }
+      }
+      return result
+    }
+    if (typeof iteratee == 'function') {
+      for (var item of array) {
+        if (!arr.includes(iteratee(item))) {
+          arr.push(iteratee(item))
+          result.push(item)
+        }
+      }
+      return result
+    }
+
+  }
 
   return {
+    uniq,
+    uniqBy,
+    union,
+    unionBy,
+    sortedIndex,
     initial,
     pull,
     negate,
@@ -508,5 +603,6 @@ var kotamashiro = function () {
     maxBy,
     property,
     intersection,
+    reverse,
   }
 }()
