@@ -1,0 +1,125 @@
+
+
+ #root{
+
+height: 100vh;
+width: 100vh;
+ }
+
+ .App{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vh;
+ }
+ .My{
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+ }
+
+
+/* footer */
+ .footer{
+   background-color:rgb(240, 242, 245);
+   background-clip:border-box;
+   display: flex;
+   position: absolute;
+   bottom: 0;
+   height: 15vh;
+   width: 100vw;
+ }
+ .footer a{
+  display: flex; 
+  justify-content: center;
+  font-size: 1.5em;
+  /* align-items: center; */
+ }
+ .footer span{
+ font-size: 4em;
+ 
+ }
+ .footleft {
+width: 50vw;
+display: flex; 
+flex-direction: column;
+
+ }
+ .footleft a,.footleft span{
+   flex-grow: 1;
+ }
+ 
+ .footright {
+  width: 50vw;
+  display: flex; 
+  flex-direction: column;
+  
+   }
+   .footright a,.footright span{
+    flex-grow: 1;
+  }
+  
+
+  /* header */
+ .appheader{
+  background-color:rgb(240, 242, 245);
+  background-clip:border-box;
+  display: flex;
+  top: 0;
+  height: 5vh;
+  width: 100vw;
+ }
+ .appheader span{
+   display: block;
+   width: 50vw;
+ }
+.appheader .backout {
+  width: 50vw;
+  
+}
+
+/* chice */
+.chice button{
+  padding-right: 50%;
+  
+}
+.chice {
+  box-sizing: border-box;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.chice section{
+  overflow: hidden;
+}
+.chice section{
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.chice button span{
+  position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+  
+}
+
+
+
+/* 创建投票 */
+
+.imga,.imgb{
+  position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+
+form .ant-form-item-control-input-content button{
+  width: 100vw;
+}
